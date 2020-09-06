@@ -20,7 +20,6 @@ pygame.display.set_icon(icon)
 mixer.music.load('background.wav')
 mixer.music.play(-1)
 
-
 class Snake:
 
     def __init__(self, x, y, x_change, y_change, speed):
@@ -31,14 +30,12 @@ class Snake:
         self.y_change = y_change
         self.speed = speed
 
-
 class Apple:
 
     def __init__(self, x, y):
         self.image = pygame.image.load('apple.png')
         self.x = x
         self.y = y
-
 
 the_value = 0
 snake = Snake(400, 300, 0, 0, 32)
@@ -50,7 +47,6 @@ score_value = 0
 font = pygame.font.Font('freesansbold.ttf', 20)
 textX = 10
 textY = 10
-
 
 class button():
     def __init__(self, color, x, y, width, height, text=''):
@@ -82,13 +78,11 @@ class button():
 
         return False
 
-
 def redrawWindow():
     easyButton.draw(win)
     mediumButton.draw(win)
     hardButton.draw(win)
     insaneButton.draw(win)
-
 
 easyButton = button((0, 100, 0), 150, 225, 120, 80, 'EASY')
 mediumButton = button((0, 100, 0), 350, 225, 120, 80, 'MEDIUM')
@@ -99,14 +93,11 @@ def show_score(x, y):
     score = font.render("Score: " + str(score_value), True, (255, 255, 255))
     screen.blit(score, (x, y))
 
-
 def draw_snake(x, y):
     screen.blit(snake.image, (x, y))
 
-
 def draw_apple(x, y):
     screen.blit(apple.image, (x, y))
-
 
 def isCollission(apple_x, apple_y, snake_x, snake_y):
     distance = math.sqrt((math.pow(apple_x - snake_x, 2)) + (math.pow(apple_y - snake_y, 2)))
@@ -114,7 +105,6 @@ def isCollission(apple_x, apple_y, snake_x, snake_y):
         return True
     else:
         return False
-
 
 # Main menu
 run_menu = True
@@ -275,7 +265,6 @@ while run_menu:
                 screen.blit(text, [text_x, text_y])
                 pygame.display.update()
                 time.sleep(2)
-
 
             if i == 0:
                 if current_velocity == 'left':
